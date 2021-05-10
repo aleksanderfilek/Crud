@@ -99,13 +99,13 @@ namespace crud
             MySqlCommand cmd = new MySqlCommand(sql, connection);
             MySqlDataReader rdr = cmd.ExecuteReader();
 
+            Console.WriteLine("[Connection] - Got user info");
             Console.WriteLine("Users table");
             while (rdr.Read())
             {
                 Console.WriteLine("{0}, {1}, age: {2}", rdr[0], rdr[1], rdr[2]);
             }
             rdr.Close();
-
         }
 
         static bool UpdateUserAge(MySqlConnection connection, string firstName, string lastName, byte age)
